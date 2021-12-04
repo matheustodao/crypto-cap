@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/no-unescaped-entities */
 import Header from '../../components/Header';
 
@@ -10,13 +11,25 @@ import {
   AboutFaetures,
   ActionToLearn,
   ContainerFeatures,
+  MarketUpdateSection,
+  CoinCategory,
+  SearchAndFilterContainer,
+  FilterContainer,
+  FilterBy,
+  SearchContainer,
 } from './styles';
+
+import search from '../../assets/images/icons/search.svg';
+
+import filters from './mock/filters';
 
 import { Button, Link } from '../../components/Button';
 import CoinTrend from './components/CoinTredList';
 import BoxFeatureList from './components/BoxFeature/BoxFeatureList';
+import TableCrypto from './components/TableCrypto';
 
 export default function Home() {
+  const maxFilters = 6;
   return (
     <Container>
       <Header />
@@ -86,6 +99,47 @@ export default function Home() {
         />
       </AboutFaetures>
 
+      <MarketUpdateSection>
+        <h2>Market Update</h2>
+
+        <CoinCategory>
+          <span>Cryptocurrency Categories</span>
+          <SearchAndFilterContainer>
+            <FilterContainer>
+              {filters.map((filter, index) => (
+                index < maxFilters
+                  ? (
+                    <FilterBy
+                      key={`${filter.name}${filter.id}`}
+                      type="button"
+                      active={filter.active}
+                    >
+                      {filter.name}
+                    </FilterBy>
+                  )
+                  : null
+              ))}
+
+              {(filters.length + maxFilters) !== 0 && (
+                <FilterBy type="button">
+                  See All {filters.length + maxFilters}+
+                </FilterBy>
+              )}
+            </FilterContainer>
+
+            <SearchContainer>
+              <button type="button">
+                <img src={search} alt="Search icon" />
+              </button>
+              <input type="search" placeholder="Search Coin" />
+            </SearchContainer>
+          </SearchAndFilterContainer>
+        </CoinCategory>
+
+        <TableCrypto />
+
+        <a href="/currencies" id="see-all-coins">See All Coins</a>
+      </MarketUpdateSection>
     </Container>
   );
 }
