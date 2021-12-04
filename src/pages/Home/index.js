@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Header from '../../components/Header';
 
 import {
@@ -6,10 +7,14 @@ import {
   MarketTrend,
   CoinTrendContainer,
   Ellipse,
+  AboutFaetures,
+  ActionToLearn,
+  ContainerFeatures,
 } from './styles';
 
-import { Button } from '../../components/Button';
+import { Button, Link } from '../../components/Button';
 import CoinTrend from './components/CoinTredList';
+import BoxFeatureList from './components/BoxFeature/BoxFeatureList';
 
 export default function Home() {
   return (
@@ -18,11 +23,11 @@ export default function Home() {
 
       <section>
         <Ellipse
-          justifyContent={{ left: '25%', background: '#7000FF' }}
+          justifyContent={{ left: '20%', background: '#7000FF' }}
         />
 
         <Ellipse
-          justifyContent={{ right: '25%', background: '#FF00C7' }}
+          justifyContent={{ right: '15%', background: '#FF00C7' }}
         />
 
         <HeaderTitle>
@@ -44,26 +49,42 @@ export default function Home() {
         </MarketTrend>
       </section>
 
-      <section>
+      <AboutFaetures>
         <Ellipse
           justifyContent={{
-            left: '0%',
+            top: '0',
+            left: '3%',
             background: '#7000FF',
-            width: '32rem',
           }}
         />
 
+        <h2>CryptoCap Amazing Faetures</h2>
+        <p>Explore sensational features to prepare your best investment in cryptocurrency</p>
+
+        <ContainerFeatures>
+          <BoxFeatureList />
+        </ContainerFeatures>
+
+        <ActionToLearn>
+          <div>
+            <strong>New In Cryptocurrency?</strong>
+            <p>
+              We'll tell you what cryptocurrencies are,
+              how they work and why you should own one right now. So let's do it.
+            </p>
+          </div>
+
+          <Link href="/learn">Learn & Explorer Now</Link>
+        </ActionToLearn>
+
         <Ellipse
           justifyContent={{
-            top: '75%',
+            top: '70%',
             right: '0',
             background: '#60FFE7',
-            width: '32rem',
           }}
         />
-
-        <h2>Section 2</h2>
-      </section>
+      </AboutFaetures>
 
     </Container>
   );

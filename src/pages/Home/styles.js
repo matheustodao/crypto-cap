@@ -3,27 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.main`
   display: flex;
   flex-direction: column;
-
+  width: 100%;
   section {
     position: relative;
     height: 100%;
-    margin: 0 9rem;
+    padding: 0 9rem;
 
     + section {
       margin-top : 13.6rem;
     }
   }
-`;
-
-export const Ellipse = styled.div`
-  position: absolute;
-  z-index: -1;
-  width: 65.5rem;
-  height: 31.4rem;
-  border-radius: 50%;
-  filter: blur(250px);
-  top: 5%;
-  ${({ justifyContent }) => justifyContent};
 `;
 
 export const HeaderTitle = styled.div`
@@ -62,7 +51,7 @@ export const HeaderTitle = styled.div`
 export const MarketTrend = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   h5 {
     font-size: 2.4rem;
@@ -75,4 +64,74 @@ export const MarketTrend = styled.div`
 export const CoinTrendContainer = styled.div`
   display: flex;
   margin-top: 2.4rem;
+`;
+
+export const Ellipse = styled.div`
+  position: absolute;
+  z-index: -1;
+  width: 31.5rem;
+  height: 31.4rem;
+  border-radius: 50%;
+  filter: blur(200px);
+  top: 5%;
+  ${({ justifyContent }) => justifyContent};
+`;
+
+export const AboutFaetures = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: ${({ theme }) => theme.colors.font.secondTitle};
+    font-family: ${({ theme }) => theme.fontFamily.secondary};
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 44px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.font.secondSubtitle};
+    font-size: 1.8rem;
+    line-height: 28px;
+    text-align: center;
+  }
+`;
+
+export const ActionToLearn = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 6rem;
+  border: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
+  border-radius: 1.2rem;
+
+  strong {
+    color: ${({ theme }) => theme.colors.font.secondTitle};
+    font-family: ${({ theme }) => theme.fontFamily.secondary};
+    font-weight: 600;
+    line-height: 32px;
+    font-size: 2.4rem;
+  }
+
+  p {
+    width: 53.6rem;
+    text-align: justify;
+    margin-top: 1.2rem;
+  }
+
+  a {
+    padding: 1.6rem 2.4rem;
+  }
+`;
+
+export const ContainerFeatures = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+  margin-bottom: 12.7rem;
 `;
