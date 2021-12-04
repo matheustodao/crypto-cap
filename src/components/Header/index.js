@@ -7,6 +7,8 @@ import {
   Language,
 } from './styles';
 
+import { Link } from '../Button';
+
 import logo from '../../assets/images/logo.svg';
 import world from '../../assets/images/icons/world.svg';
 
@@ -46,9 +48,9 @@ export default function Header() {
   return (
     <Container>
       <NavBar>
-        <div id="logoContainer">
+        <a href="/" id="logoContainer">
           <img src={logo} alt="Crypto cap" />
-        </div>
+        </a>
 
         <Navigation>
           <ul>
@@ -68,7 +70,7 @@ export default function Header() {
             </select>
           </Language>
 
-          <a className="button" href="/sign-in">Login</a>
+          <Link className="button" href="/sign-in">Login</Link>
         </LanguageAndCTA>
       </NavBar>
     </Container>
