@@ -15,6 +15,10 @@ export default createGlobalStyle`
     height: 100vh;
   }
 
+  button, input {
+    font-family: ${({ theme }) => theme.fontFamily.primary};
+  }
+
   body {
     font-size: 1rem;
     color: ${({ theme }) => theme.colors.pure.white};
