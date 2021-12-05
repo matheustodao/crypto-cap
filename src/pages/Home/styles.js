@@ -299,3 +299,48 @@ export const ContentItem = styled.div`
     margin-top: 2.4rem;
   }
 `;
+
+export const Footer = styled.footer`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6.1rem 9rem;
+  border-top: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .socials {
+      margin-top: 6.5rem;
+      margin-bottom: 3.2rem;
+      a + a{
+        margin-left: 1.2rem;
+        img {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
+
+    span, a {
+      font-size: 1.6rem;
+      color: ${({ theme }) => theme.colors.font.secondSubtitle};
+      line-height: 2.4rem;
+    }
+
+    a {
+      text-decoration: none;
+      text-transform: capitalize;
+      margin-top: 2rem;
+    }
+
+    strong {
+      font-family: ${({ theme }) => theme.fontFamily.secondary};
+      font-weight: 600;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+    }
+  }
+`;

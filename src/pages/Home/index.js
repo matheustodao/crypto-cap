@@ -19,13 +19,18 @@ import {
   SearchContainer,
   HowToGetStartedSection,
   ContentItem,
-
+  Footer,
 } from './styles';
 
 import search from '../../assets/images/icons/search.svg';
 import userPlusFilled from '../../assets/images/icons/user-plus-filled.svg';
 import creditCardFilled from '../../assets/images/icons/credit-card-filled.svg';
 import currencyFilled from '../../assets/images/icons/currency-filled.svg';
+import logo from '../../assets/images/logo.svg';
+import instagram from '../../assets/images/icons/instagram.svg';
+import facebook from '../../assets/images/icons/facebook.svg';
+import twitter from '../../assets/images/icons/twitter.svg';
+import youtube from '../../assets/images/icons/youtube.svg';
 
 import filters from './mock/filters';
 
@@ -197,6 +202,47 @@ export default function Home() {
           </ContentItem>
         </div>
       </HowToGetStartedSection>
+
+      <Footer>
+        <div>
+          <a href="/">
+            <img src={logo} loading="lazy" alt="Logo crypto cap" />
+          </a>
+          <div className="socials">
+            <a href="/instagram">
+              <img src={instagram} loading="lazy" alt="Instagram" />
+            </a>
+            <a href="/facebook">
+              <img src={facebook} loading="lazy" alt="Facebook" />
+            </a>
+            <a href="/twiter">
+              <img src={twitter} loading="lazy" alt="Twitter" />
+            </a>
+            <a href="/youtube">
+              <img src={youtube} loading="lazy" alt="Youtube" />
+            </a>
+          </div>
+          <span>
+            {new Date().getFullYear()} CoinMarketCap. All rights reserved
+          </span>
+        </div>
+
+        <div>
+          <strong>About Us</strong>
+          <a href="/about">About</a>
+          <a href="/careers">careers</a>
+          <a href="/blog">blog</a>
+          <a href="/legal-&-privacy">Legal & Privacy</a>
+        </div>
+
+        <div>
+          <strong>Services</strong>
+          <a href="/applications">applications</a>
+          <a href="/buy-crypto">Buy Crypto</a>
+          <a href="/affiliate">affiliate</a>
+          <a href="/institutional-services">Institutional Services</a>
+        </div>
+      </Footer>
     </Container>
   );
 }
