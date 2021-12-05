@@ -215,7 +215,11 @@ export default function Home() {
 
         <ArticleContainer>
           <MainArticle image={imageOne}>
-            <h2 id="title">All about Investing in NFTs and related risks</h2>
+            <h2 id="title">
+              <a href="/articles/all-about-investing-in-NFTs-and-related-risks">
+                All about Investing in NFTs and related risks
+              </a>
+            </h2>
 
             <Tag>CRYPTO basic</Tag>
           </MainArticle>

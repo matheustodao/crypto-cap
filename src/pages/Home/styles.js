@@ -340,6 +340,11 @@ export const MainArticle = styled.div`
   #title {
     text-align: left;
     margin-bottom: 2.2rem;
+
+    a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.font.secondTitle};
+    }
   }
 `;
 
