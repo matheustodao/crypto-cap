@@ -17,9 +17,15 @@ import {
   FilterContainer,
   FilterBy,
   SearchContainer,
+  HowToGetStartedSection,
+  ContentItem,
+
 } from './styles';
 
 import search from '../../assets/images/icons/search.svg';
+import userPlusFilled from '../../assets/images/icons/user-plus-filled.svg';
+import creditCardFilled from '../../assets/images/icons/credit-card-filled.svg';
+import currencyFilled from '../../assets/images/icons/currency-filled.svg';
 
 import filters from './mock/filters';
 
@@ -36,11 +42,11 @@ export default function Home() {
 
       <section>
         <Ellipse
-          justifyContent={{ left: '20%', background: '#7000FF' }}
+          justifyContent={{ left: '25%', background: '#7000FF' }}
         />
 
         <Ellipse
-          justifyContent={{ right: '15%', background: '#FF00C7' }}
+          justifyContent={{ right: '25%', background: '#FF00C7' }}
         />
 
         <HeaderTitle>
@@ -140,6 +146,57 @@ export default function Home() {
 
         <a href="/currencies" id="see-all-coins">See All Coins</a>
       </MarketUpdateSection>
+
+      <HowToGetStartedSection>
+        <Ellipse
+          justifyContent={{
+            top: '25%',
+            left: '15%',
+            background: '#FF00C7',
+            opacity: '.2',
+          }}
+        />
+
+        <Ellipse
+          justifyContent={{
+            top: '25%',
+            left: '55%',
+            background: '#7000FF',
+            opacity: '.2',
+          }}
+        />
+        <div className="about-get-started">
+          <h2>How To Get Started</h2>
+          <p>Simple and easy way to start your investment in cryptocurrency</p>
+          <Link href="/get-started">Get Started</Link>
+        </div>
+
+        <div className="content-item-container">
+          <ContentItem>
+            <img src={userPlusFilled} alt="Icon user plus" />
+            <div className="info">
+              <strong>Create Your Account</strong>
+              <p> Your account and personal identity are guaranteed safe.</p>
+            </div>
+          </ContentItem>
+
+          <ContentItem>
+            <img src={creditCardFilled} alt="Icon credit card" />
+            <div className="info">
+              <strong>Connect Bank Account</strong>
+              <p>Connect the bank account to start transactions.</p>
+            </div>
+          </ContentItem>
+
+          <ContentItem>
+            <img src={currencyFilled} alt="Icon currency" />
+            <div className="info">
+              <strong>Start Build Portfolio</strong>
+              <p>Buy and sell popular currencies and keep track of them.</p>
+            </div>
+          </ContentItem>
+        </div>
+      </HowToGetStartedSection>
     </Container>
   );
 }

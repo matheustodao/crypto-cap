@@ -84,7 +84,8 @@ export const Ellipse = styled.div`
   width: 31.5rem;
   height: 31.4rem;
   border-radius: 50%;
-  filter: blur(200px);
+  filter: blur(125px);
+  opacity: .3;
   top: 5%;
   ${({ justifyContent }) => justifyContent};
 `;
@@ -227,5 +228,74 @@ export const SearchContainer = styled.div`
       display: none;
       appearance: none;
     }
+  }
+`;
+
+export const HowToGetStartedSection = styled.section`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .about-get-started {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    p {
+      color: ${({ theme }) => theme.colors.font.secondSubtitle};
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      margin-top: 1.8rem;
+      margin-bottom: 4.9rem;
+      max-width: 38rem;
+    }
+
+    a {
+      padding: 1.3rem 5.1rem;
+    }
+
+  }
+
+  .content-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+`;
+export const ContentItem = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
+  border-radius: 1.8rem;
+  padding: 3rem 2rem;
+  min-width: 55rem;
+  width: 100%;
+
+  img {
+    width: 8rem;
+    height: 8rem;
+    margin-right: 2.1rem;
+  }
+
+  .info {
+    strong {
+      color: ${({ theme }) => theme.colors.font.secondTitle};
+      font-family: ${({ theme }) => theme.fontFamily.secondary};
+      font-weight: 600;
+      line-height: 3rem;
+      font-size: 2rem;
+    }
+
+    p {
+      color: ${({ theme }) => theme.colors.font.secondSubtitle};
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin-top: 1rem;
+      width: 31.8rem;
+    }
+  }
+
+  & + & {
+    margin-top: 2.4rem;
   }
 `;
