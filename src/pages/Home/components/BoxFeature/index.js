@@ -16,7 +16,7 @@ export default function BoxFeature({ feature }) {
         <p>{feature.description}</p>
       </div>
 
-      <a href={`/explained/${feature.title.trim().toLowerCase().replace(' ', '-')}`}>
+      <a href={`/explained/${feature.title.trim().toLowerCase().replaceAll(' ', '-')}`}>
         See explained
         <img src={arrow} alt="arrow" />
       </a>

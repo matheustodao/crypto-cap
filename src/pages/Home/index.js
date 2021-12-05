@@ -224,7 +224,7 @@ export default function Home() {
               <img src={article.image} loading="lazy" alt="About crypto" />
               <div className="info">
                 <Tag>{article.tag}</Tag>
-                <a href={`/articles/${article.title.trim().replace(' ', '-')}`}>{article.title}</a>
+                <a href={`/articles/${article.title.trim().toLowerCase().replaceAll(' ', '-')}`}>{article.title}</a>
                 <p>{article.subtitle}</p>
               </div>
             </article>
