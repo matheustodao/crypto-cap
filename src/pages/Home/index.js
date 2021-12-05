@@ -19,6 +19,10 @@ import {
   SearchContainer,
   HowToGetStartedSection,
   ContentItem,
+  LearnAboutCrypto,
+  ArticleContainer,
+  MainArticle,
+  Tag,
   Footer,
 } from './styles';
 
@@ -31,8 +35,10 @@ import instagram from '../../assets/images/icons/instagram.svg';
 import facebook from '../../assets/images/icons/facebook.svg';
 import twitter from '../../assets/images/icons/twitter.svg';
 import youtube from '../../assets/images/icons/youtube.svg';
+import imageOne from '../../assets/images/articles/image-1.png';
 
 import filters from './mock/filters';
+import articles from './mock/articles';
 
 import { Button, Link } from '../../components/Button';
 import CoinTrend from './components/CoinTredList';
@@ -149,7 +155,7 @@ export default function Home() {
 
         <TableCrypto />
 
-        <a href="/currencies" id="see-all-coins">See All Coins</a>
+        <a href="/currencies" className="see-all">See All Coins</a>
       </MarketUpdateSection>
 
       <HowToGetStartedSection>
@@ -202,6 +208,32 @@ export default function Home() {
           </ContentItem>
         </div>
       </HowToGetStartedSection>
+
+      <LearnAboutCrypto>
+        <h2>Learn About Cryptocurrency</h2>
+        <p>Learn all about cryptocurrency to start investing</p>
+
+        <ArticleContainer>
+          <MainArticle image={imageOne}>
+            <h2 id="title">All about Investing in NFTs and related risks</h2>
+
+            <Tag>CRYPTO basic</Tag>
+          </MainArticle>
+          {articles.map((article) => (
+            <article key={`${article.id}`}>
+              <img src={article.image} loading="lazy" alt="About crypto" />
+              <div className="info">
+                <Tag>{article.tag}</Tag>
+                <a href={`/articles/${article.title.trim().replace(' ', '-')}`}>{article.title}</a>
+                <p>{article.subtitle}</p>
+              </div>
+            </article>
+          ))}
+        </ArticleContainer>
+        <div className="see-all-container">
+          <a href="/articles" className="see-all">See All Articles</a>
+        </div>
+      </LearnAboutCrypto>
 
       <Footer>
         <div>

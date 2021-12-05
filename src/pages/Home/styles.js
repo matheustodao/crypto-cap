@@ -23,6 +23,15 @@ export const Container = styled.main`
       margin-bottom: 1rem;
     }
   }
+
+  .see-all {
+    color: ${({ theme }) => theme.colors.main.primary};
+    font-family: ${({ theme }) => theme.fontFamily.secondary};
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-top: 4.1rem;
+  }
+
 `;
 
 export const HeaderTitle = styled.div`
@@ -144,14 +153,6 @@ export const MarketUpdateSection = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
-  #see-all-coins {
-    color: ${({ theme }) => theme.colors.main.primary};
-    font-family: ${({ theme }) => theme.fontFamily.secondary};
-    font-weight: 600;
-    font-size: 1.6rem;
-    margin-top: 4.1rem;
-  }
 `;
 
 export const CoinCategory = styled.div`
@@ -297,6 +298,116 @@ export const ContentItem = styled.div`
 
   & + & {
     margin-top: 2.4rem;
+  }
+`;
+
+export const LearnAboutCrypto = styled.section`
+  margin-top: 19rem;
+  margin-bottom: 22.6rem;
+  p {
+    color: ${({ theme }) => theme.colors.font.secondSubtitle};
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin-top: 1.6rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .see-all-container {
+    display: flex;
+    justify-content: center;
+    max-width: 126.2rem;
+    margin: auto;
+
+    @media screen and (min-width: 1442px) {
+      justify-content: flex-start;
+    }
+  }
+`;
+
+export const MainArticle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 3rem;
+  padding-top: 22rem;
+  width: 61.8rem;
+  border-radius: 1.8rem;
+  background: ${({ image }) => `url(${image})`} no-repeat;
+  background-size: cover;
+
+  #title {
+    text-align: left;
+    margin-bottom: 2.2rem;
+  }
+`;
+
+export const Tag = styled.span`
+  padding: .4rem .8rem;
+  border-radius: .4rem;
+  border: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
+
+  font-weight: 500;
+  line-height: 2.2rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.font.secondSubtitle};
+`;
+
+export const ArticleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 126.2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2.6rem;
+  margin: auto;
+  margin-top: 6rem;
+
+  @media screen and (min-width: 1442px) {
+    justify-content: flex-start;
+  }
+
+  article {
+    width: 29.6rem;
+    border-radius: 1.8rem;
+    border: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.02));
+    height: 39.1rem;
+
+    img:first-child {
+      width: 100%;
+      height: 19.5rem;
+      border-top-left-radius: 1.8rem;
+      border-top-right-radius: 1.8rem;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 191px;
+      padding: 2rem;
+      a {
+        font-family: ${({ theme }) => theme.fontFamily.secondary};
+        font-weight: 600;
+        line-height: 2.4rem;
+        font-size: 1.6rem;
+        text-decoration: none;
+        color: ${({ theme }) => theme.colors.pure.white};
+        margin-top: 1.3rem;
+      }
+
+      p {
+        line-height: 2.2rem;
+        font-size: 1.4rem;
+        color: ${({ theme }) => theme.colors.font.secondSubtitle};
+        text-align: left;
+      }
+    }
+
   }
 `;
 
