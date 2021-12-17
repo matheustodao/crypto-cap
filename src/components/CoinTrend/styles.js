@@ -89,5 +89,6 @@ export const PriceAndChange = styled.div`
 `;
 
 export const ChartState = styled.div`
-
+  width: 10rem;
+  height: 5.4rem;
 `;
