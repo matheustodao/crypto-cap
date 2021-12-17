@@ -4,6 +4,7 @@ const axios = require('axios').default;
 class MarketCoinsRepository {
   async findByName(name) {
     // Funciona, mas como estou usando creditos limitados
+
     // const { data: cryptos } = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/categories', {
     //   headers: {
     //     'X-CMC_PRO_API_KEY': process.env.BACKEND_SECRET_KEY_MARKET_COIN_CAP,
@@ -43,7 +44,7 @@ class MarketCoinsRepository {
     const [{ id, name: cryotoName }] = cryptos.data.filter((category) => (
       category.name.toLowerCase() === name.toLowerCase()
     ));
-    console.log(cryotoName);
+
     return id;
   }
 }
