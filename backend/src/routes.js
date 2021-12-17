@@ -3,7 +3,7 @@ const MarketCoinController = require('./app/controllers/MarketCoinController');
 
 const routes = Router();
 
-routes.get(`/api/market-coin-cap/cryptocurrency/latest`, MarketCoinController.indexLatestCryptocurrencies);
-routes.get(`/api/market-coin-cap/cryptocurrency/category/:id`, MarketCoinController.showCategoryCryptocurrencies);
+routes.get('/api/market-coin-cap/cryptocurrency/latest', MarketCoinController.indexLatest);
+routes.get('/api/market-coin-cap/cryptocurrency/category/:name', MarketCoinController.showCategory);
 
 module.exports = routes;

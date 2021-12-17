@@ -7,7 +7,7 @@ export const Container = styled.main`
   section {
     position: relative;
     height: 100%;
-    padding: 0 9rem;
+    align-self: center;
 
     + section {
       margin-top : 13.6rem;
@@ -153,6 +153,8 @@ export const MarketUpdateSection = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  align-self: center;
+  max-width: 135rem;
 `;
 
 export const CoinCategory = styled.div`
@@ -315,13 +317,9 @@ export const LearnAboutCrypto = styled.section`
 
   .see-all-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     max-width: 126.2rem;
     margin: auto;
-
-    @media screen and (min-width: 1442px) {
-      justify-content: flex-start;
-    }
   }
 `;
 
@@ -370,10 +368,6 @@ export const ArticleContainer = styled.div`
   gap: 2.6rem;
   margin: auto;
   margin-top: 6rem;
-
-  @media screen and (min-width: 1442px) {
-    justify-content: flex-start;
-  }
 
   article {
     width: 29.6rem;

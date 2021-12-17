@@ -59,6 +59,12 @@ export const Rows = styled.div`
         line-height: 2.4rem;
         color: ${({ theme }) => theme.colors.font.secondSubtitle};
       }
+
+    &.row-change {
+      span {
+        color: ${({ isNegativeChange }) => isNegativeChange && '#AE0000'};
+      }
+    }
     }
 
     .row-trade {
@@ -74,7 +80,6 @@ export const Rows = styled.div`
   & + & {
     border-top: 1px solid ${({ theme }) => theme.colors.main.cardBackground};
   }
-
 `;
 
 export const FirstRow = styled.div`

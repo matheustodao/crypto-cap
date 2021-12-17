@@ -1,3 +1,6 @@
+import { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Container,
   TableHeader,
@@ -7,9 +10,35 @@ import {
 
 import { Button } from '../../../../components/Button';
 
-import coins from '../CoinTredList/data';
+import MarketCoinCapServices from '../../../../services/MarketCoinCapServices';
+import LineChart from '../../../../components/LineChart';
 
-export default function TableCrypto() {
+export default function TableCrypto({ category }) {
+  const [coins, setCoins] = useState([]);
+
+  function formatCurrency(country, currency, value) {
+    return new Intl.NumberFormat(country, { style: 'currency', currency }).format(value);
+  }
+  const cryptosList = useCallback(async () => {
+    try {
+      setCoins([]);
+
+      if (category.toLowerCase() !== 'popular') {
+        const { cryptos } = await MarketCoinCapServices.listCategory(category, { limit: 7 });
+        return setCoins(cryptos);
+      }
+
+      const cryptos = await MarketCoinCapServices.listLatestCryptos({ limit: 7 });
+      return setCoins(cryptos);
+    } catch (error) {
+      return error;
+    }
+  }, [category]);
+
+  useEffect(() => {
+    cryptosList();
+  }, [cryptosList]);
+
   return (
     <Container>
       <TableHeader>
@@ -37,14 +66,14 @@ export default function TableCrypto() {
       </TableHeader>
 
       {coins.map((coin, index) => (
-        <Rows>
+        <Rows isNegativeChange={coin.quote.USD.percent_change_24h.toFixed(2) < 0}>
           <div className="row">
             <FirstRow className="row-ranking">
               <span>{index + 1}</span>
 
               <div className="row-name">
                 <div className="image-and-name">
-                  <img src={coin.logo} loading="lazy" alt={`${coin.name} Logo`} />
+                  <img src={MarketCoinCapServices.getLogoCrypto(coin.id)} loading="lazy" alt={`${coin.name} Logo`} />
                   <span>{coin.name}</span>
                 </div>
                 <span>{coin.symbol}</span>
@@ -52,15 +81,28 @@ export default function TableCrypto() {
             </FirstRow>
 
             <div className="row-price">
-              <span>{coin.price}</span>
+              <span>{formatCurrency('en-US', 'USD', coin.quote.USD.price)}</span>
             </div>
 
             <div className="row-change">
-              <span>{coin.change}</span>
+              <span>
+                {coin.quote.USD.percent_change_24h.toFixed(2)}
+                %
+              </span>
             </div>
 
             <div className="row-stats">
-              <img src={coin.chart} loading="lazy" alt="Chart State" />
+              <LineChart
+                data={[
+                  { x: '0', y: 0 },
+                  { x: '90D', y: coin.quote.USD.percent_change_90d },
+                  { x: '60D', y: coin.quote.USD.percent_change_60d },
+                  { x: '30D', y: coin.quote.USD.percent_change_30d },
+                  { x: '7D', y: coin.quote.USD.percent_change_7d },
+                  { x: '24D', y: coin.quote.USD.percent_change_24h },
+                  { x: '1H', y: coin.quote.USD.percent_change_1h },
+                ]}
+              />
             </div>
 
             <div className="row-trade">
@@ -73,3 +115,11 @@ export default function TableCrypto() {
     </Container>
   );
 }
+
+TableCrypto.propTypes = {
+  category: PropTypes.string,
+};
+
+TableCrypto.defaultProps = {
+  category: null,
+};
