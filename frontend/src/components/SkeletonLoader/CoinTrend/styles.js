@@ -1,24 +1,6 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
 
-const shine = keyframes`
-  to {
-    background-position: 200%;
-  }
-`;
-
-const linearBackgroundAnimate = css`
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0) 80%
-  ) rgb(200, 200, 200);
-  background-repeat: repeat-y;
-  background-position: 0 0;
-  background-size: 50px 500px;
-  -webkit-animation: ${shine} 1s infinite;
-  animation: ${shine} 1s infinite;
-`;
+import { linearBackgroundAnimate, shine } from '../backgroundAnimated';
 
 export const Container = styled.div`
   width: 29.7rem;

@@ -6,7 +6,6 @@ export const Container = styled.main`
   width: 100%;
   section {
     position: relative;
-    max-width: 90%;
     height: 100%;
     align-self: center;
 
@@ -60,6 +59,7 @@ export const HeaderTitle = styled.div`
     font-feature-settings: 'salt' on, 'liga' off;
     margin-top: 1.8rem;
     margin-bottom: 4rem;
+    width: 45.7rem;
   }
 
   button {
@@ -71,15 +71,14 @@ export const HeaderTitle = styled.div`
 export const MarketTrend = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  width: 125rem;
   h5 {
     font-size: 2.4rem;
     line-height: 32px;
     color: ${({ theme }) => theme.colors.font.secondTitle};
     font-weight: 600;
     text-align: left;
-    width: 100%;
   }
 `;
 

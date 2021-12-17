@@ -12,9 +12,11 @@ import { Button } from '../../../../components/Button';
 
 import MarketCoinCapServices from '../../../../services/MarketCoinCapServices';
 import LineChart from '../../../../components/LineChart';
+import SkeletonLoaderTableCrypto from '../../../../components/SkeletonLoader/TableCrypto';
 
 export default function TableCrypto({ category }) {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   function formatCurrency(country, currency, value) {
     return new Intl.NumberFormat(country, { style: 'currency', currency }).format(value);
@@ -22,6 +24,7 @@ export default function TableCrypto({ category }) {
   const cryptosList = useCallback(async () => {
     try {
       setCoins([]);
+      setIsLoading(true);
 
       if (category.toLowerCase() !== 'popular') {
         const { cryptos } = await MarketCoinCapServices.listCategory(category, { limit: 7 });
@@ -30,8 +33,8 @@ export default function TableCrypto({ category }) {
 
       const cryptos = await MarketCoinCapServices.listLatestCryptos({ limit: 7 });
       return setCoins(cryptos);
-    } catch (error) {
-      return error;
+    } finally {
+      setIsLoading(false);
     }
   }, [category]);
 
@@ -65,6 +68,9 @@ export default function TableCrypto({ category }) {
         </div>
       </TableHeader>
 
+      {[...Array(7).keys()].map((item) => (
+        <SkeletonLoaderTableCrypto key={item + 1} isLoading={isLoading} />
+      ))}
       {coins.map((coin, index) => (
         <Rows isNegativeChange={coin.quote.USD.percent_change_24h.toFixed(2) < 0}>
           <div className="row">
