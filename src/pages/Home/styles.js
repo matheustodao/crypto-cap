@@ -6,6 +6,7 @@ export const Container = styled.main`
   width: 100%;
   section {
     position: relative;
+    max-width: 90%;
     height: 100%;
     align-self: center;
 
