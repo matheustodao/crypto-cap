@@ -12,10 +12,10 @@ export const Container = styled.div`
 
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.3) 80%
-  ) rgba(255, 255, 255, .5);
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.1) 80%
+  ) rgba(255, 255, 255, .1);
   background-position: -25%;
   background-size: 90vw;
   background-repeat: repeat-y;
