@@ -13,5 +13,5 @@ app.use(cors);
 app.use(routes);
 app.use(errorHandler);
 
-const port = process.env.BACKEND_PORT;
+const port = process.env.PORT;
 app.listen(port, () => console.log('Server Started'));
