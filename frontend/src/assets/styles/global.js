@@ -29,4 +29,20 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.fontFamily.secondary};
     font-size: 2rem;
   }
+
+  #message {
+    display: none;
+  }
+
+  @media screen and (max-width: 1271px) {
+   main, footer, header {
+      display: none !important;
+    }
+
+    #message {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+  }
 `;
