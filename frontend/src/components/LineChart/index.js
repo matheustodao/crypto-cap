@@ -40,6 +40,7 @@ export default function LineChart({ data }) {
         bottom: 10,
         left: 10,
       }}
+      isInteractive
     />
   );
 }
