@@ -101,10 +101,6 @@ export default function TableCrypto({ category }) {
               <LineChart
                 data={[
                   { x: '0', y: 0 },
-                  { x: '90D', y: coin.quote.USD.percent_change_90d },
-                  { x: '60D', y: coin.quote.USD.percent_change_60d },
-                  { x: '30D', y: coin.quote.USD.percent_change_30d },
-                  { x: '7D', y: coin.quote.USD.percent_change_7d },
                   { x: '24D', y: coin.quote.USD.percent_change_24h },
                   { x: '1H', y: coin.quote.USD.percent_change_1h },
                 ]}
